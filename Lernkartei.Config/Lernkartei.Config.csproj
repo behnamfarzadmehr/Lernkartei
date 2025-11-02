@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="9.0.10" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="9.0.10" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Lernkartei.Infrastructure\Lernkartei.Infrastructure.csproj" />
+    <ProjectReference Include="..\Lernkartei.Service.Abstract\Lernkartei.Service.Abstract.csproj" />
+    <ProjectReference Include="..\Lernkartei.Service.Concrete\Lernkartei.Service.Concrete.csproj" />
+  </ItemGroup>
+
+</Project>

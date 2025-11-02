@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Lernkartei.Domain\Lernkartei.Domain.csproj" />
+    <ProjectReference Include="..\Lernkartei.Service.Abstract\Lernkartei.Service.Abstract.csproj" />
+  </ItemGroup>
+
+</Project>
