@@ -1,6 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Lernkartei.Dto.Card;
 using Lernkartei.Service.Abstract.Card;
-using Lernkartei.Dto.Card;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Lernkartei.RestApi.Controllers
 {
@@ -29,8 +29,9 @@ namespace Lernkartei.RestApi.Controllers
                 throw;
             }
         }
+
         [HttpGet("{id}")]
-        public ActionResult<IQueryable<CardDto>> Get(long id)
+        public ActionResult<IEnumerable<CardDto>> Get(long id)
         {
             try
             {
@@ -42,6 +43,7 @@ namespace Lernkartei.RestApi.Controllers
                 throw;
             }
         }
+
         [HttpPost]
         public ActionResult<CardDto> Post([FromBody] CardDto model)
         {
@@ -56,6 +58,7 @@ namespace Lernkartei.RestApi.Controllers
                 throw;
             }
         }
+
         [HttpPut]
         public ActionResult<CardDto> Put([FromBody]CardDto model)
         {
@@ -69,6 +72,7 @@ namespace Lernkartei.RestApi.Controllers
                 throw;
             }
         }
+
         [HttpDelete("{id}")]
         public ActionResult<CardDto> Delete (long id)
         {
@@ -82,6 +86,7 @@ namespace Lernkartei.RestApi.Controllers
                 throw;
             }
         }
+
         [HttpPut("SetCardAfterReview")]
         public ActionResult SetCardAfterReview(CardDto card)
         {

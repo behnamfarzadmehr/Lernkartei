@@ -1,15 +1,14 @@
 ﻿using Lernkartei.Domain.Abstraction;
 using Lernkartei.Dto.Card;
 using Lernkartei.Service.Abstract.Card;
-using Lernkartei.Common.AutoMapper;
-using System.Globalization;
+using Lernkartei.Service.Concrete.Mapper;
 
 namespace Lernkartei.Service.Concrete.Card
 {
-    public class CardHouseService : MainService<Domain.Entities.CardHouse, CardHouseDto>, ICardHouseService
+    public class CardHouseService : ICardHouseService
     {
         private readonly ICardHouseRepository _cardRepository;
-        public CardHouseService(ICardHouseRepository cardRepository) : base(cardRepository)
+        public CardHouseService(ICardHouseRepository cardRepository)
         {
             _cardRepository = cardRepository;
         }
@@ -18,8 +17,8 @@ namespace Lernkartei.Service.Concrete.Card
         {
             try
             {
-                Domain.Entities.CardHouse? result = _cardRepository.Add(entity: model.MapTo<Domain.Entities.CardHouse>());
-                return result.MapTo<CardHouseDto>();
+                Domain.Entities.CardHouse? result = _cardRepository.Add(entity: model.MapTo());
+                return result.MapTo();
             }
             catch (Exception)
             {
@@ -73,11 +72,11 @@ namespace Lernkartei.Service.Concrete.Card
         {
             switch (houseNumber)
             {
-                case 1: return _cardRepository.GetReadyToReviewHousesList(Common.Enum.Houses.House1, DateTime.Now.Date).MapToList<CardDto>();
-                case 2: return _cardRepository.GetReadyToReviewHousesList(Common.Enum.Houses.House2, DateTime.Now.AddDays(-1).Date).MapToList<CardDto>();
-                case 3: return _cardRepository.GetReadyToReviewHousesList(Common.Enum.Houses.House3,DateTime.Now.AddDays(-3).Date).MapToList<CardDto>();
-                case 4: return _cardRepository.GetReadyToReviewHousesList(Common.Enum.Houses.House4, DateTime.Now.AddDays(-7).Date).MapToList<CardDto>();
-                case 5: return _cardRepository.GetReadyToReviewHousesList(Common.Enum.Houses.House5,DateTime.Now.AddDays(-14).Date).MapToList<CardDto>();
+                case 1: return _cardRepository.GetReadyToReviewHousesList(Common.Enum.Houses.House1, DateTime.Now.Date).MapTo();
+                case 2: return _cardRepository.GetReadyToReviewHousesList(Common.Enum.Houses.House2, DateTime.Now.AddDays(-1).Date).MapTo();
+                case 3: return _cardRepository.GetReadyToReviewHousesList(Common.Enum.Houses.House3,DateTime.Now.AddDays(-3).Date).MapTo();
+                case 4: return _cardRepository.GetReadyToReviewHousesList(Common.Enum.Houses.House4, DateTime.Now.AddDays(-7).Date).MapTo();
+                case 5: return _cardRepository.GetReadyToReviewHousesList(Common.Enum.Houses.House5,DateTime.Now.AddDays(-14).Date).MapTo();
                 default: return null;
             }
         }
@@ -86,11 +85,11 @@ namespace Lernkartei.Service.Concrete.Card
         {
             switch (houseNumber)
             {
-                case 1: return _cardRepository.GetFirstReadyToReviewHousesList(Common.Enum.Houses.House1, DateTime.Now.Date)?.MapTo<CardDto>();
-                case 2: return _cardRepository.GetFirstReadyToReviewHousesList(Common.Enum.Houses.House2, DateTime.Now.AddDays(-1).Date)?.MapTo<CardDto>();
-                case 3: return _cardRepository.GetFirstReadyToReviewHousesList(Common.Enum.Houses.House3, DateTime.Now.AddDays(-3).Date)?.MapTo<CardDto>();
-                case 4: return _cardRepository.GetFirstReadyToReviewHousesList(Common.Enum.Houses.House4, DateTime.Now.AddDays(-7).Date)?.MapTo<CardDto>();
-                case 5: return _cardRepository.GetFirstReadyToReviewHousesList(Common.Enum.Houses.House5, DateTime.Now.AddDays(-14).Date)?.MapTo<CardDto>();
+                case 1: return _cardRepository.GetFirstReadyToReviewHousesList(Common.Enum.Houses.House1, DateTime.Now.Date)?.MapTo();
+                case 2: return _cardRepository.GetFirstReadyToReviewHousesList(Common.Enum.Houses.House2, DateTime.Now.AddDays(-1).Date)?.MapTo();
+                case 3: return _cardRepository.GetFirstReadyToReviewHousesList(Common.Enum.Houses.House3, DateTime.Now.AddDays(-3).Date)?.MapTo();
+                case 4: return _cardRepository.GetFirstReadyToReviewHousesList(Common.Enum.Houses.House4, DateTime.Now.AddDays(-7).Date)?.MapTo();
+                case 5: return _cardRepository.GetFirstReadyToReviewHousesList(Common.Enum.Houses.House5, DateTime.Now.AddDays(-14).Date)?.MapTo();
                 default: return null;
             }
         }

@@ -14,7 +14,7 @@ namespace Lernkartei.InfraStructure.Concrete.Repository
             _Context = context;
             _entities = context.Set<TEntity>();
         }
-        public IQueryable<TEntity> GetAll()
+        public IEnumerable<TEntity> GetAll()
         {
             try
             {

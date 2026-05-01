@@ -1,8 +1,8 @@
-﻿namespace Lernkartei.Dto.Auth
+﻿namespace Lernkartei.Dto.Auth;
+
+public record Response
 {
-    public class Response
-    {
-        public string Status { get; set; }
-        public string Message { get; set; }
-    }
+    public string Status { get; set; } = string.Empty;
+
+    public string Message { get; set; } = string.Empty;
 }

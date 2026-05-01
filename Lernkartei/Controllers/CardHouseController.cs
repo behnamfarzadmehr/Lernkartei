@@ -2,7 +2,6 @@
 using Lernkartei.Service.Abstract.Card;
 using Microsoft.AspNetCore.Mvc;
 
-
 namespace Lernkartei.Controllers
 {
     [Route("api/[controller]")]
@@ -41,6 +40,7 @@ namespace Lernkartei.Controllers
                 throw;
             }
         }
+
         [HttpGet("ReadyToReviewHousesList")]
         public ActionResult<IList<CardDto>?> ReadyToReviewHousesList(int houseNumber)
         {
@@ -54,6 +54,7 @@ namespace Lernkartei.Controllers
                 throw;
             }
         }
+
         [HttpGet("FirstReadyToReviewCard")]
         public ActionResult<CardDto?> FirstReadyToReviewCard(int houseNumber)
         {

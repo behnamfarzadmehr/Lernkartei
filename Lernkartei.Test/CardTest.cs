@@ -41,7 +41,7 @@ namespace Lernkartei.Test
                 Perfekt = "gemacht",
                 CreateDateTime = DateTime.Now,
             };
-            CardDto result = _cardService.Add(model);
+            CardDto result = _cardService.Insert(model);
             CardHouse cardHouse = new CardHouse
             {
                 ActionDate = DateTime.Now,

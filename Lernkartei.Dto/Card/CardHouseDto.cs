@@ -2,7 +2,7 @@
 
 namespace Lernkartei.Dto.Card
 {
-    public class CardHouseDto
+    public record CardHouseDto
     {
         /// <summary>
         /// کلید اصلی

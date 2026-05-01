@@ -1,9 +1,10 @@
-﻿namespace Lernkartei.Dto.Auth
+﻿namespace Lernkartei.Dto.Auth;
+
+public record UserInfoDto
 {
-    public class UserInfoDto
-    {
-        public string UserId { get; set; }
-        public string UserName { get; set; }
-        public string Token { get; set; }
-    }
+    public string UserId { get; set; } = string.Empty;
+
+    public string UserName { get; set; } = string.Empty;
+
+    public string Token { get; set; } = string.Empty;
 }

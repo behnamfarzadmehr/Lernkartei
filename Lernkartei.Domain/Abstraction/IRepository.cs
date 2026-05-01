@@ -4,7 +4,7 @@ namespace Lernkartei.Domain.Abstraction
 {
     public interface IRepository<TEntity> where TEntity : class,new()
     {
-        public IQueryable<TEntity> GetAll();
+        public IEnumerable<TEntity> GetAll();
         public TEntity GetById(dynamic id);
         public TEntity Add(TEntity entity);
         public TEntity Update(TEntity entity);
